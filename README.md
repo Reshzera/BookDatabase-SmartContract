@@ -1,44 +1,56 @@
-# BookDatabase Smart Contract
+# BookDatabase Solidity Project
 
-## Overview
+## Project Overview
 
-The BookDatabase smart contract is a blockchain-based application designed to manage a database of books on the Ethereum network. It allows for the addition, editing, and removal of book records, each identified by a unique ID. This contract is particularly useful for decentralized applications (dApps) that require a persistent and immutable record of books. Written in Solidity, this contract leverages the security and transparency of the Ethereum blockchain.
+BookDatabase is a smart contract written in Solidity for use on the Ethereum blockchain. It allows the storage, modification, and deletion of book records in a decentralized manner. The contract is immutable once deployed, with an owner-centric permission system for modifying book records.
 
 ## Features
 
-- **Immutable Ownership**: The ownership of the contract is assigned at deployment and cannot be changed, ensuring secure management.
-- **Book Management**: Books can be added, edited, and removed from the database.
-- **Unique Book IDs**: Each book is assigned a unique ID, facilitating easy access and management.
+- Add new book records with title and year.
+- Edit existing book records.
+- Remove book records.
+- Count the total number of books in the database.
+- Restrict access to book modification to the contract owner.
 
-## How It Works
+## Installation
 
-1. **Initialization**: Upon deployment, the contract owner is set to the address that deployed the contract.
-2. **Adding Books**: The `addBook` function allows the owner to add books to the database. Each book has a title and a publication year.
-3. **Editing Books**: The `editBook` function enables the owner to edit the details of an existing book by its ID.
-4. **Removing Books**: Books can be removed from the database using the `removeBook` function.
+To set up the BookDatabase project locally, follow these steps:
 
-## Interacting with the Contract
+1. Clone the repository to your local machine.
+2. Install dependencies with `yarn install`.
+3. Set up a `.env` file with your custom network URLs and mnemonics.
 
-### Prerequisites
+## Usage
 
-- An Ethereum wallet.
-- Enough ETH to cover transaction fees.
+The project can be interacted with using scripts provided in the `package.json` file:
 
-### Functions
+- `yarn compile`: Compiles the smart contract.
+- `yarn test`: Runs tests using Hardhat's coverage plugin.
+- `yarn start`: Starts a local Hardhat node.
+- `yarn deploy:sepolia`: Deploys the contract to the Sepolia testnet.
+- `yarn deploy:dev`: Deploys the contract to a local network.
 
-- **addBook(Book memory book)**: Adds a new book to the database. The `Book` struct requires a `title` (string) and `year` (uint16).
-- **editBook(uint32 id, Book memory book)**: Edits an existing book's details. The function checks for changes in the title and year; if no changes are detected, or if invalid data is provided, the book remains unchanged.
-- **removeBook(uint32 id)**: Removes a book from the database by its ID.
+## Smart Contract Methods
 
-## Security Features
+- `addBook(Book memory book)`: Adds a new book to the database.
+- `editBook(uint32 id, Book memory book)`: Edits an existing book.
+- `removeBook(uint32 id)`: Removes a book from the database.
+- `count()`: Returns the number of books in the database.
 
-- **Restricted Access**: Functions that modify the database (`addBook`, `editBook`, `removeBook`) are restricted to the contract owner, preventing unauthorized alterations.
-- **Input Validation**: The contract validates inputs to ensure that books are only edited with valid information.
+## Requirements
 
-## Testing and Deployment
+- Node.js
+- Yarn
+- An Ethereum wallet with a mnemonic for deploying the contract
 
-It's recommended to thoroughly test the contract in a testnet environment (e.g., Rinkeby or Ropsten) before deploying it on the main Ethereum network. Testing tools like Truffle or Hardhat can facilitate deployment and interaction with the contract.
+## Configuration
 
-## Conclusion
+The `hardhat.config.ts` file contains network configuration for local and Sepolia networks. Make sure to provide the correct environment variables for `SEPOLIA_URL`, `SEPOLIA_MNEMONIC`, and `ETHERSCAN_API_KEY`.
 
-The BookDatabase smart contract offers a decentralized solution for managing a book database on the Ethereum blockchain. It demonstrates the application of smart contracts in managing data with transparency, security, and immutability.
+## Contributing
+
+Contributions are welcome! Please open an issue or submit a pull request for any bugs, features, or improvements.
+
+## License
+
+This project is open-sourced software licensed under the MIT license.
