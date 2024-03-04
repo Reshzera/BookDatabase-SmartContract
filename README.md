@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-BookDatabase is a smart contract written in Solidity for use on the Ethereum blockchain. It allows the storage, modification, and deletion of book records in a decentralized manner. The contract is immutable once deployed, with an owner-centric permission system for modifying book records.
+BookDatabase is a smart contract written in Solidity for use on the Ethereum blockchain. It allows the storage, modification, and deletion of book records in a decentralized manner. The contract is immutable once deployed, with an owner-centric permission system for modifying book records. Here is the contract deployed in a sepolia testnet: https://sepolia.etherscan.io/address/0xb4bdab41d1e0abf9eff2564a29f316443ec80b16#code;
 
 ## Features
 
